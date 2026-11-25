@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transaction Certificate (TC) Webinar | Otto International</title>
+<meta name="description" content="Training webinar for suppliers on Transaction Certificate (TC) requirements, timelines and compliance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0B4FA3; --blue-dk:#0A2E5C; --green:#1F8A4C; --green-lt:#E4F4EA;
+  --ink:#14263B; --muted:#4A5C70; --mist:#F2F6FA; --line:#DCE5EE; --white:#fff;
+  --r:16px; --font:'Manrope','Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--font);color:var(--ink);background:var(--white);line-height:1.65;font-size:1rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:60ch;margin-bottom:2.2rem}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--blue),var(--green));z-index:100}
+header{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-weight:800;text-decoration:none;color:var(--blue-dk);display:flex;align-items:center;gap:.5rem}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--green);display:inline-block}
+.menu{display:flex;gap:.3rem;list-style:none;padding:0}
+.menu a{display:block;padding:.45rem .8rem;border-radius:99px;text-decoration:none;font-size:.92rem;font-weight:500;color:var(--muted);transition:.2s}
+.menu a:hover{color:var(--blue)}
+.menu a.active{background:var(--mist);color:var(--blue);font-weight:700}
+#burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:.45rem .7rem;font:inherit;cursor:pointer}
+@media(max-width:860px){
+  #burger{display:block}
+  .menu{position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;padding:.6rem 4%;border-bottom:1px solid var(--line);display:none}
+  .menu.open{display:flex}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.5rem;border-radius:99px;font:inherit;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 20px -8px rgba(31,138,76,.7)}
+.btn-primary:hover{background:#177040}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--blue-dk) 0%,var(--blue) 60%,#127A6B 120%);color:#fff;padding:clamp(3rem,8vw,6rem) 0;overflow:hidden}
+.hero .wrap{display:grid;gap:3rem;grid-template-columns:1.05fr .95fr;align-items:center}
+.hero h1{font-size:clamp(2.2rem,6vw,3.7rem);margin-bottom:1rem}
+.hero .sub{font-size:1.2rem;font-weight:500;opacity:.95;margin-bottom:1rem;max-width:34ch}
+.hero .intro{opacity:.85;max-width:52ch;margin-bottom:2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.banner{position:relative;border-radius:24px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);padding:1.2rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.banner svg{width:100%;height:auto;display:block}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+
+/* cards */
+.grid3{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.8rem;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -22px rgba(11,79,163,.45);border-color:var(--blue)}
+.ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:1.1rem;background:var(--green-lt);color:var(--green)}
+.card:nth-child(2) .ico{background:#E5EEFA;color:var(--blue)}
+.ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.2rem;margin-bottom:.4rem}
+.card p{color:var(--muted)}
+
+/* topics timeline */
+.topics{background:var(--mist)}
+.tl{list-style:none;padding:0;position:relative;display:grid;gap:1rem;max-width:760px}
+.tl::before{content:"";position:absolute;left:23px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--blue),var(--green))}
+.tl li{position:relative;display:flex;gap:1.1rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.3rem 1rem 1rem;transition:transform .2s,box-shadow .2s}
+.tl li:hover{transform:translateX(6px);box-shadow:0 12px 28px -18px rgba(11,79,163,.5)}
+.tl b{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:1.2rem;z-index:1}
+.tl span{font-weight:700}
+
+/* video */
+.video-sec{background:linear-gradient(180deg,#fff,var(--mist))}
+.video-box{position:relative;border-radius:24px;overflow:hidden;background:#0A1A2E;aspect-ratio:16/9;box-shadow:0 30px 60px -28px rgba(10,46,92,.6);border:6px solid #fff;outline:1px solid var(--line)}
+.video-box video{width:100%;height:100%;display:block;object-fit:contain;background:#0A1A2E}
+.overlay{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,rgba(10,46,92,.82),rgba(18,122,107,.7));border:0;cursor:pointer;transition:opacity .4s;color:#fff;font:inherit;width:100%}
+.overlay.hide{opacity:0;pointer-events:none}
+.play{width:92px;height:92px;border-radius:50%;background:#fff;display:grid;place-items:center;position:relative}
+.play::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:2px solid rgba(255,255,255,.7);animation:pulse 2s infinite}
+.play svg{width:36px;fill:var(--green);margin-left:5px}
+.overlay em{display:block;margin-top:1.3rem;font-style:normal;font-weight:700;font-size:1.1rem}
+@keyframes pulse{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.4);opacity:0}}
+.note{display:flex;gap:.8rem;margin-top:1.6rem;padding:1.1rem 1.3rem;background:var(--green-lt);border-left:5px solid var(--green);border-radius:12px;color:#17402B;font-weight:500}
+
+/* stats */
+.stats{background:var(--blue-dk);color:#fff}
+.stats .grid3{text-align:center}
+.stat{padding:1rem}
+.stat strong{display:block;font-size:clamp(2.6rem,6vw,3.6rem);font-weight:800;color:#7EE0A6;line-height:1}
+.stat span{font-weight:600;opacity:.92}
+.stats small{display:block;text-align:center;margin-top:1.6rem;opacity:.6}
+
+/* checklist */
+.check{list-style:none;padding:0;display:grid;gap:.9rem;max-width:820px}
+.check li{display:flex;gap:1rem;align-items:center;padding:1.05rem 1.3rem;border:1px solid var(--line);border-radius:var(--r);background:#fff;font-weight:600}
+.tick{flex:none;width:34px;height:34px;border-radius:50%;background:var(--green-lt)}
+.tick svg{width:34px;height:34px;fill:none;stroke:var(--green);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.tick path{stroke-dasharray:30;stroke-dashoffset:30}
+.check li.in .tick path{animation:draw .6s .25s forwards ease-out}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* faq */
+.faq{background:var(--mist)}
+.acc{max-width:820px;display:grid;gap:.8rem}
+.acc-item{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 1.4rem;background:none;border:0;font:inherit;font-weight:700;text-align:left;cursor:pointer;color:var(--ink)}
+.acc-btn:hover{color:var(--blue)}
+.acc-btn::after{content:"+";font-size:1.5rem;color:var(--green);transition:transform .3s}
+.acc-btn[aria-expanded="true"]::after{transform:rotate(45deg)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.acc-panel.open{grid-template-rows:1fr}
+.acc-panel>div{overflow:hidden}
+.acc-panel p{padding:0 1.4rem 1.2rem;color:var(--muted)}
+
+/* contact */
+.contact-box{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:center;padding:clamp(1.6rem,4vw,2.6rem);border-radius:24px;background:linear-gradient(135deg,var(--green-lt),#E5EEFA);border:1px solid var(--line)}
+.contact-box .ico{width:72px;height:72px;background:#fff;margin:0}
+.contact-box .ico svg{width:34px;height:34px}
+.contact-box h2{font-size:1.7rem}
+.contact-box p{color:var(--muted);max-width:60ch}
+@media(max-width:600px){.contact-box{grid-template-columns:1fr}}
+
+footer{background:var(--blue-dk);color:#fff;text-align:center;padding:2.4rem 0}
+footer p+p{opacity:.75;margin-top:.3rem;font-size:.95rem}
+
+#top{position:fixed;right:1.2rem;bottom:1.2rem;width:48px;height:48px;border-radius:50%;border:0;background:var(--green);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.4);opacity:0;transform:translateY(16px);pointer-events:none;transition:.3s;z-index:80}
+#top.show{opacity:1;transform:none;pointer-events:auto}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}.reveal{opacity:1;transform:none}
+  .tick path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap" aria-label="Main navigation">
+    <a class="brand" href="#home"><i></i>TC Webinar</a>
+    <button id="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul class="menu" id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#why">Why TCs matter</a></li>
+      <li><a href="#topics">Topics</a></li>
+      <li><a href="#video">Watch</a></li>
+      <li><a href="#checklist">Checklist</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Support</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<!-- 1. HERO -->
+<section class="hero" id="home" style="padding-block:clamp(3rem,8vw,6rem)">
+  <div class="wrap">
+    <div>
+      <h1>Transaction Certificate (TC) Webinar</h1>
+      <p class="sub">Understand TC requirements, avoid delays, and ensure compliance with customer expectations.</p>
+      <p class="intro">This webinar explains the Transaction Certificate policy and key requirements for certified materials. By following these guidelines, suppliers can improve compliance and ensure timely TC issuance.</p>
+      <div class="cta">
+        <button class="btn btn-primary" id="heroPlay"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg>Play video</button>
+        <a class="btn btn-ghost" href="#video">Watch webinar</a>
+      </div>
+    </div>
+    <!-- Compliance-themed banner (inline SVG, no external image needed) -->
+    <div class="banner float" role="img" aria-label="Illustration of a certified Transaction Certificate document with a verified seal and fabric roll">
+      <svg viewBox="0 0 480 360">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#1F8A4C"/><stop offset="1" stop-color="#127A6B"/></linearGradient></defs>
+        <rect x="150" y="30" width="200" height="270" rx="16" fill="#fff"/>
+        <rect x="150" y="30" width="200" height="54" rx="16" fill="#0B4FA3"/>
+        <rect x="150" y="62" width="200" height="22" fill="#0B4FA3"/>
+        <text x="250" y="66" text-anchor="middle" font-family="Manrope,Arial" font-weight="800" font-size="20" fill="#fff">TRANSACTION CERTIFICATE</text>
+        <g fill="#DCE5EE"><rect x="176" y="112" width="148" height="9" rx="4"/><rect x="176" y="136" width="110" height="9" rx="4"/><rect x="176" y="160" width="148" height="9" rx="4"/><rect x="176" y="184" width="90" height="9" rx="4"/></g>
+        <circle cx="290" cy="248" r="40" fill="url(#g)"/>
+        <circle cx="290" cy="248" r="32" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="4 4"/>
+        <path d="M273 249l12 12 22-24" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="176" y="230" width="70" height="9" rx="4" fill="#DCE5EE"/><rect x="176" y="252" width="50" height="9" rx="4" fill="#DCE5EE"/>
+        <g><rect x="38" y="210" width="130" height="96" rx="14" fill="#7EE0A6"/><ellipse cx="38" cy="258" rx="18" ry="48" fill="#1F8A4C"/><ellipse cx="38" cy="258" rx="7" ry="20" fill="#0A2E5C"/>
+        <path d="M60 230h96M60 250h96M60 270h96M60 290h96" stroke="#1F8A4C" stroke-width="2" opacity=".5"/></g>
+        <circle cx="400" cy="90" r="26" fill="#fff" opacity=".9"/><path d="M388 90l8 8 16-18" fill="none" stroke="#1F8A4C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 2. WHY TCs MATTER -->
+<section id="why">
+  <div class="wrap reveal">
+    <h2>Why TCs matter</h2>
+    <p class="lead">Three reasons every supplier team should treat TCs as a priority.</p>
+    <div class="grid3">
+      <article class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Timely compliance</h3><p>Submit TCs within the required timeline to avoid compliance issues.</p>
+      </article>
+      <article class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.3 11l9.4-4M7.3 13l9.4 4"/></svg></div>
+        <h3>Supply chain transparency</h3><p>Transaction Certificates verify certified materials throughout the supply chain.</p>
+      </article>
+      <article class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.800-8 11-8 11z"/></svg></div>
+        <h3>Customer expectations</h3><p>Meeting TC requirements supports sustainable sourcing commitments.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. KEY TOPICS -->
+<section class="topics" id="topics">
+  <div class="wrap reveal">
+    <h2>Key webinar topics</h2>
+    <p class="lead">What you will learn, in the order the webinar covers it.</p>
+    <ol class="tl">
+      <li><b>✅</b><span>What is a Transaction Certificate?</span></li>
+      <li><b>✅</b><span>Why TCs are required</span></li>
+      <li><b>✅</b><span>Common reasons for delayed TCs</span></li>
+      <li><b>✅</b><span>Required timelines</span></li>
+      <li><b>✅</b><span>Best practices for suppliers</span></li>
+      <li><b>✅</b><span>Support and escalation process</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4. VIDEO -->
+<section class="video-sec" id="video">
+  <div class="wrap reveal">
+    <h2>Watch the TC Webinar</h2>
+    <p class="lead">Press play to start. The recording works on phones, tablets and desktops.</p>
+    <div class="video-box">
+      <!--
+        ====================== REPLACE VIDEO LINK HERE ======================
+        The video file "TC video.mp4" is stored in the same GitHub repository
+        as this page. The space in the name is written as %20 in the URL.
+        To use a different link, change the src below (VIDEO_LINK_HERE).
+        For a YouTube/Vimeo embed, replace the whole <video> element with an <iframe>.
+        =====================================================================
+      -->
+      <video id="tcVideo" controls preload="metadata" playsinline aria-label="Transaction Certificate webinar recording">
+        <source src="TC%20video.mp4" type="video/mp4"> <!-- VIDEO_LINK_HERE -->
+        Your browser does not support embedded video. <a href="TC%20video.mp4">Download the webinar</a>.
+      </video>
+      <button class="overlay" id="overlay" aria-label="Play the TC webinar">
+        <span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span><em>Play the webinar</em></span>
+      </button>
+    </div>
+    <p class="note"><span aria-hidden="true">👥</span>Please ensure the webinar is viewed by all personnel responsible for certification management, material sourcing, and documentation.</p>
+  </div>
+</section>
+
+<!-- STATS (placeholder percentages) -->
+<section class="stats" aria-label="Expected benefits">
+  <div class="wrap reveal">
+    <div class="grid3">
+      <div class="stat"><strong data-count="40" data-suffix="%">0%</strong><span>Faster TC processing</span></div>
+      <div class="stat"><strong data-count="95" data-suffix="%">0%</strong><span>Better compliance</span></div>
+      <div class="stat"><strong data-count="80" data-suffix="%">0%</strong><span>Improved transparency</span></div>
+    </div>
+    <small>Example percentages shown as placeholders only.</small>
+  </div>
+</section>
+
+<!-- 5. CHECKLIST -->
+<section id="checklist">
+  <div class="wrap reveal">
+    <h2>Supplier action checklist</h2>
+    <p class="lead">Follow these six steps for every certified order.</p>
+    <ul class="check" id="checklistList"></ul>
+  </div>
+</section>
+
+<!-- 6. FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap reveal">
+    <h2>Frequently asked questions</h2>
+    <p class="lead">Quick answers before or after you watch the webinar.</p>
+    <div class="acc" id="acc">
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false" aria-controls="a1" id="q1">What is a Transaction Certificate?</button>
+        <div class="acc-panel" id="a1" role="region" aria-labelledby="q1"><div><p>A Transaction Certificate (TC) is a document issued by a certification body that confirms a specific shipment of certified material was sold and delivered by a certified supplier.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false" aria-controls="a2" id="q2">When should a TC be issued?</button>
+        <div class="acc-panel" id="a2" role="region" aria-labelledby="q2"><div><p>Apply for the TC immediately after shipment and provide it within the timeline set out in the TC policy covered in the webinar.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false" aria-controls="a3" id="q3">What happens if a TC is delayed?</button>
+        <div class="acc-panel" id="a3" role="region" aria-labelledby="q3"><div><p>Delayed or missing TCs can lead to compliance issues and may affect the certified status of the related goods. Contact your Otto International representative as early as possible.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false" aria-controls="a4" id="q4">Who should attend this webinar?</button>
+        <div class="acc-panel" id="a4" role="region" aria-labelledby="q4"><div><p>Certification, sustainability, merchandising and sourcing teams, documentation staff and factory management.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false" aria-controls="a5" id="q5">Where can I get support?</button>
+        <div class="acc-panel" id="a5" role="region" aria-labelledby="q5"><div><p>Contact your Otto International representative. See the support section below.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CONTACT -->
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="contact-box">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/></svg></div>
+      <div>
+        <h2>Need assistance?</h2>
+        <p>For questions regarding TC requirements or certification processes, please contact your Otto International representative.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 8. FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© Otto International | Corporate Responsibility &amp; Sustainable Supply Chain</p>
+    <p>Thank you for supporting responsible and transparent sourcing.</p>
+  </div>
+</footer>
+
+<button id="top" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  // Checklist (animated checkmarks)
+  var items=["Review TC requirements.","Track certified orders regularly.","Apply for TCs immediately after shipment.","Monitor certification body turnaround times.","Upload and provide TCs within required timelines.","Contact your Otto International representative if support is needed."];
+  $('#checklistList').innerHTML=items.map(function(t){return '<li><span class="tick"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="15" stroke-width="2" opacity=".25"/><path d="M10 17.500l5 5 9-11"/></svg></span>'+t+'</li>'}).join('');
+
+  // Mobile menu
+  var burger=$('#burger'), menu=$('#menu');
+  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  $$('#menu a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded',false)})});
+
+  // FAQ accordion
+  $$('.acc-btn').forEach(function(b){b.addEventListener('click',function(){
+    var open=b.getAttribute('aria-expanded')==='true';
+    $$('.acc-btn').forEach(function(x){x.setAttribute('aria-expanded',false);$('#'+x.getAttribute('aria-controls')).classList.remove('open')});
+    if(!open){b.setAttribute('aria-expanded',true);$('#'+b.getAttribute('aria-controls')).classList.add('open')}
+  })});
+
+  // Video play enhancement
+  var v=$('#tcVideo'), ov=$('#overlay');
+  function play(){ov.classList.add('hide');var p=v.play();if(p&&p.catch)p.catch(function(){ov.classList.remove('hide')})}
+  ov.addEventListener('click',play);
+  v.addEventListener('pause',function(){if(!v.ended&&v.currentTime===0)ov.classList.remove('hide')});
+  v.addEventListener('ended',function(){ov.classList.remove('hide')});
+  $('#heroPlay').addEventListener('click',function(){
+    $('#video').scrollIntoView({behavior:'smooth'});
+    setTimeout(play,700);
+  });
+
+  // Fade-in on scroll + animated counters + checkmarks
+  function count(el){
+    var end=+el.dataset.count, suf=el.dataset.suffix||'', t0=null;
+    (function step(t){t0=t0||t;var p=Math.min((t-t0)/1600,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)})(performance.now());
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    e.target.classList.add('in');
+    $$('[data-count]',e.target).forEach(count);
+    $$('.check li',e.target).forEach(function(li,i){setTimeout(function(){li.classList.add('in')},i*180)});
+    io.unobserve(e.target);
+  })},{threshold:.15});
+  $$('.reveal').forEach(function(el){io.observe(el)});
+
+  // Active nav highlighting
+  var links=$$('.menu a'), secs=links.map(function(a){return $(a.getAttribute('href'))});
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})
+  })},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){s&&so.observe(s)});
+
+  // Progress bar + back to top
+  var bar=$('#progress'), top=$('#top');
+  function onScroll(){
+    var h=document.documentElement, p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    bar.style.width=(p*100)+'%'; top.classList.toggle('show',h.scrollTop>600);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+})();
+</script>
+</body>
+</html>
