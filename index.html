@@ -348,10 +348,10 @@ footer p+p{opacity:.75;margin-top:.3rem;font-size:.95rem}
     if(!open){b.setAttribute('aria-expanded',true);$('#'+b.getAttribute('aria-controls')).classList.add('open')}
   })});
 
-  // Video playlist: 5 parts play back to back as one webinar
+  // Video playlist: 4 parts play back to back as one webinar
   // ====================== REPLACE VIDEO LINKS HERE ======================
   // List the part files in order. They must sit in the same folder as index.html.
-  var PARTS=["TC-part1.mp4","TC-part2.mp4","TC-part3.mp4","TC-part4.mp4","TC-part5.mp4"]; // VIDEO_LINK_HERE
+  var PARTS=["TC%20Video%2001.mp4","TC%20Video%2002.mp4","TC%20Video%2003.mp4","TC%20Video%2004.mp4"]; // VIDEO_LINK_HERE
   // ======================================================================
   var v=$('#tcVideo'), ov=$('#overlay'), pbar=$('#parts'), idx=0, pre=null, preFor=-1;
   pbar.innerHTML=PARTS.map(function(_,i){return '<button type="button" data-i="'+i+'">Part '+(i+1)+'</button>'}).join('');
